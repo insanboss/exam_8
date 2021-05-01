@@ -1,23 +1,26 @@
 {% extends 'base.html' %}
+
+
 {% block menu %}
 
 
 
-{% endblock %}
+
+{% endblock menu %}
+
+{% block title %}{{ product.name }}{% endblock %}
 
 
-{% block content %}
+
+<{% block content %}
 
 
 
-    <div class=".bg-light">
-        <h1 class="main_title">Продукты</h1>
-
-        {% for product in products %}
-            <div class="guest_card card border-dark mb-5" style="max-width: 18rem;">
+<div class="guest_card card border-dark mb-5 mt-5" style="max-width: 18rem;">
               <div class="card-header">
-                  <span>Название продукта: <a href="{% url 'products:product_view' product.pk %}">{{ product.name }}</a></span>
+                  <span>Название продукта: {{ product.name }}</span>
                   <div> Категория продукта: {{ product.categories }}</div>
+                  <div>Текст продукта : {{ product.description }}</div>
               </div>
               <div class="card-body text-dark">
                 <h5 class="card-title"></h5>
@@ -28,8 +31,5 @@
                     {% endif %}
               </div>
             </div>
-        {% endfor %}
-    </div>
-
-
 {% endblock %}
+
