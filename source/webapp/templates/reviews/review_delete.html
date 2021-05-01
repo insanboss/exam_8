@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Delete issue{% endblock %}
+{% block menu %}
+{% endblock %}
+{% block content %}
+    <h1>Are you sure want to delete issue "{{ review_obj.id }}"?</h1>
+    <form method="POST" action="{% url "products:review_delete" review_obj.id %}" class="text-center">
+        {% csrf_token %}
+        <p><input type="submit" value="Confirm"></p>
+        <p><a href="{% url "products:product_view" review_obj.product.pk %}">Cancel</a></p>
+    </form>
+{% endblock %}

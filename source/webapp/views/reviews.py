@@ -30,4 +30,8 @@ class ReviewUpdate(UpdateView):
         return reverse('products:index_products')
 
 
-
+class ReviewDelete(DeleteView):
+    template_name = 'reviews/review_delete.html'
+    model = Review
+    context_object_name = 'review_obj'
+    success_url = reverse_lazy('products:index_products')
