@@ -26,6 +26,6 @@ class Review(models.Model):
         validators=[MaxValueValidator(5), MinValueValidator(1)],
         verbose_name='Оценка'
      )
-    is_moderated = models.BooleanField(null=True, blank=True, verbose_name='промодерировано')
+    is_moderated = models.BooleanField(null=True, blank=True, verbose_name='промодерировано', default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

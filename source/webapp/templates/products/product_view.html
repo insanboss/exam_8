@@ -5,6 +5,7 @@
 
     <li><a href="{% url 'products:product_delete' product.id %}">Delete product</a></li>
     <li><a href="{% url 'products:product_update' product.id %}">Product update</a></li>
+    <li><a href="{% url 'products:review_add' product.pk %}">Create review</a></li>
 
 {% endblock menu %}
 
@@ -30,6 +31,23 @@
                         <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD-WdLYbJApJzlmhsqPbyueloBRfD5GRJncw&usqp=CAU" width="250" height="250" alt="product picture">
                     {% endif %}
               </div>
+
+            {% for review in product.review.all %}
+                {% if review.is_moderated %}
+                <div class="guest_card card border-dark mb-5" style="max-width: 18rem;">
+                  <div class="card-header">
+                      <span>Имя автора :{{ review.author }}</span>
+                  </div>
+                  <div class="card-body text-dark">
+                    <h5 class="card-title"></h5>
+                        <p class="card-text">Оценка : {{ review.rating }}</p>
+                        <p class="card-text">Текст отзыва : {{ review.text }}</p>
+                  </div>
+                </div>
+                {% endif %}
+        {% endfor %}
+
+
             </div>
 {% endblock %}
 

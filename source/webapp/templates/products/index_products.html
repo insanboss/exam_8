@@ -18,6 +18,24 @@
               <div class="card-header">
                   <span>Название продукта: <a href="{% url 'products:product_view' product.pk %}">{{ product.name }}</a></span>
                   <div> Категория продукта: {{ product.categories }}</div>
+
+              <h3>Отзывы</h3>
+
+                  {% for review in product.review.all %}
+                {% if review.is_moderated %}
+                <div class="guest_card card border-dark mb-5" style="max-width: 18rem;">
+                  <div class="card-header">
+                      <span>Имя автора :{{ review.author }}</span>
+                  </div>
+                  <div class="card-body text-dark">
+                    <h5 class="card-title"></h5>
+                        <p class="card-text">Оценка : {{ review.rating }}</p>
+                        <p class="card-text">Текст отзыва : {{ review.text }}</p>
+                  </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+
               </div>
               <div class="card-body text-dark">
                 <h5 class="card-title"></h5>
