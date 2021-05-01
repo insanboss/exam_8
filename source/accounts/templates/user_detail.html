@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Пользователь{% endblock %}
+
+
+{% block menu_links %}
+    {% if request.user == user_obj %}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <h1>Личная страница пользователя {{ user_obj.get_full_name|default:user_obj.username }}</h1>
+    <p>Имя пользователя: {{ user_obj.username }}</p>
+    <p>Имя: {{ user_obj.first_name }}</p>
+    <p>Фамилия: {{ user_obj.last_name }}</p>
+    <p>Дата рождения: {{ user_obj.profile.birth_date|date:'d.m.Y' }}</p>
+    <p>Почта: {{ user_obj.email }}</p>
+
+
+
+    {% for review in reviews.all %}
+                {% if review.is_moderated %}
+                <div class="guest_card card border-dark mb-5" style="max-width: 18rem;">
+                  <div class="card-header">
+                      <p>Редактировать отзыв № <a href="{% url 'products:review_update' review.pk %}">{{ review.pk }}</a></p>
+                      <p>Удалить отзыв № <a href="{% url 'products:review_delete' review.pk %}">{{ review.pk }}</a></p>
+                      <span>Имя автора :{{ review.author }}</span>
+                  </div>
+                  <div class="card-body text-dark">
+                    <h5 class="card-title"></h5>
+                        <p class="card-text">Оценка : {{ review.rating }}</p>
+                        <p class="card-text">Текст отзыва : {{ review.text }}</p>
+                  </div>
+                </div>
+                {% endif %}
+        {% endfor %}
+
+{% endblock %}
