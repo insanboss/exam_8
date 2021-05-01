@@ -18,3 +18,14 @@ class AddReview(CreateView):
         review.author = self.request.user
         review.save()
         return redirect('products:product_view', pk=product.pk)
+
+
+class ReviewUpdate(UpdateView):
+    model = Review
+    template_name = 'reviews/review_update.html'
+    form_class = ReviewForm
+    context_object_name = 'review'
+
+    def get_success_url(self):
+        return reverse('products:index_products')
+
