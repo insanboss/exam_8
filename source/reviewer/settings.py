@@ -120,3 +120,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LOGIN_REDIRECT_URL = 'tracker:index_projects'
+LOGOUT_REDIRECT_URL = 'tracker:index_projects'
+LOGIN_URL = 'tracker:index_projects'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+
+MEDIA_URL = 'uploads/'
