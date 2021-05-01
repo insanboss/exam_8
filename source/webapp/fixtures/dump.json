@@ -1,0 +1,66 @@
+[
+{
+  "model": "webapp.product",
+  "pk": 1,
+  "fields": {
+    "name": "cheeseburger",
+    "categories": "food",
+    "description": "its delicious!!!",
+    "avatar": ""
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 2,
+  "fields": {
+    "name": "washing machine",
+    "categories": "household_products",
+    "description": "very useful",
+    "avatar": "product_pics/manager.png"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$UNzUBwo4TLz3$2vif75x5BegwJ3jBpWpWSCAoVJL8ggG1eF6l9HH7bk4=",
+    "last_login": "2021-05-01T07:16:12.633Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2021-05-01T07:15:41.671Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 1,
+  "fields": {
+    "author": 1,
+    "text": "some text",
+    "product": 1,
+    "rating": 2,
+    "is_moderated": null,
+    "created_at": "2021-05-01T07:18:30.781Z",
+    "updated_at": "2021-05-01T07:18:30.781Z"
+  }
+},
+{
+  "model": "webapp.review",
+  "pk": 2,
+  "fields": {
+    "author": 1,
+    "text": "some text 2",
+    "product": 2,
+    "rating": 5,
+    "is_moderated": false,
+    "created_at": "2021-05-01T07:18:48.949Z",
+    "updated_at": "2021-05-01T07:18:48.949Z"
+  }
+}
+]
