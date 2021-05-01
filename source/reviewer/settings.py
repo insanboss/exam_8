@@ -121,9 +121,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_REDIRECT_URL = 'tracker:index_projects'
-LOGOUT_REDIRECT_URL = 'tracker:index_projects'
-LOGIN_URL = 'tracker:index_projects'
+LOGIN_REDIRECT_URL = 'products:index_products'
+LOGOUT_REDIRECT_URL = 'products:index_products'
+LOGIN_URL = 'products:index_products'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 
