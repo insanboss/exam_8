@@ -29,3 +29,5 @@ class ReviewUpdate(UpdateView):
     def get_success_url(self):
         return reverse('products:index_products')
 
+
+
