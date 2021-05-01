@@ -3,7 +3,7 @@
 
 {% block menu %}
 
-
+    <li><a href="{% url 'products:product_delete' product.id %}">Delete product</a></li>
     <li><a href="{% url 'products:product_update' product.id %}">Product update</a></li>
 
 {% endblock menu %}
